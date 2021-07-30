@@ -91,9 +91,13 @@ class Client
     }
 
     /**
+     * @param string $url
+     * @param array  $data
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function request(string $url, array $data) : ResponseInterface
+    public function request(string $url, array $data = []) : ResponseInterface
     {
         return $this->client->post($url, [
             'query' => array_merge($this->query, $data),
